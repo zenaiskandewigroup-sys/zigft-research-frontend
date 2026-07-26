@@ -1,37 +1,47 @@
 "use client";
 
-import MobileSidebar from "./mobile-sidebar";
+import { Bell, Search } from "lucide-react";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
-export default function TopNavbar() {
+export function TopNavbar() {
+  return (
+    <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border bg-background/80 px-6 backdrop-blur">
 
-    return (
+      {/* Left */}
+      <div className="flex items-center gap-3">
 
-        <header className="h-16 border-b border-zinc-800 bg-[#111827] flex items-center justify-between px-4 lg:px-6">
 
-            <div className="flex items-center gap-3">
+	<SidebarTrigger className="lg:hidden" />
 
-                <div className="lg:hidden">
+        <div>
+          <h1 className="text-lg font-semibold text-foreground">
+            Dashboard
+          </h1>
 
-                    <MobileSidebar/>
+          <p className="text-xs text-muted-foreground">
+            Trading Research Platform
+          </p>
+        </div>
 
-                </div>
+      </div>
 
-                <h1 className="text-lg font-semibold text-white">
+      {/* Right */}
+      <div className="flex items-center gap-3">
 
-                    Dashboard
+        <button className="rounded-xl border border-border p-2 hover:bg-accent">
+          <Search size={18} />
+        </button>
 
-                </h1>
+        <button className="rounded-xl border border-border p-2 hover:bg-accent">
+          <Bell size={18} />
+        </button>
 
-            </div>
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary font-semibold text-primary-foreground">
+          Z
+        </div>
 
-            <div className="text-sm text-zinc-400">
+      </div>
 
-                ZIGFT Research
-
-            </div>
-
-        </header>
-
-    );
-
+    </header>
+  );
 }

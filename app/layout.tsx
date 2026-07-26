@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "ZIGFT Research",
-  description: "Trading Research & Analytics Platform",
+  description: "Professional Trading Research Platform",
 };
 
 export default function RootLayout({
@@ -24,11 +24,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
+	<html
+          lang="en"
+          className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased`}
+        >
+
+      <body className="min-h-screen bg-background text-foreground antialiased">
         <TooltipProvider>
           {children}
         </TooltipProvider>

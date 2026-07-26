@@ -1,70 +1,121 @@
 "use client";
 
+import Link from "next/link";
 import {
-    LayoutDashboard,
-    Briefcase,
-    LineChart,
-    FlaskConical,
-    PlayCircle,
-    Image,
-    Bot,
-    Settings,
+  LayoutDashboard,
+  FolderKanban,
+  FlaskConical,
+  Activity,
+  Bot,
+  Images,
+  Settings,
 } from "lucide-react";
 
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from "@/components/ui/sidebar";
+
 const menus = [
-    {
-        title: "Dashboard",
-        icon: LayoutDashboard,
-    },
-    {
-        title: "Workspace",
-        icon: Briefcase,
-    },
-    {
-        title: "Trading Systems",
-        icon: LineChart,
-    },
-    {
-        title: "Backtest",
-        icon: FlaskConical,
-    },
-    {
-        title: "Forward Test",
-        icon: PlayCircle,
-    },
-    {
-        title: "Visual Database",
-        icon: Image,
-    },
-    {
-        title: "AI Analysis",
-        icon: Bot,
-    },
-    {
-        title: "Settings",
-        icon: Settings,
-    },
+  {
+    title: "Dashboard",
+    href: "/",
+    icon: LayoutDashboard,
+  },
+  {
+    title: "Workspace",
+    href: "/workspace",
+    icon: FolderKanban,
+  },
+  {
+    title: "Backtest",
+    href: "/backtest",
+    icon: FlaskConical,
+  },
+  {
+    title: "Forward Test",
+    href: "/forwardtest",
+    icon: Activity,
+  },
+  {
+    title: "AI Analysis",
+    href: "/ai",
+    icon: Bot,
+  },
+  {
+    title: "Visual Database",
+    href: "/visual-database",
+    icon: Images,
+  },
+  {
+    title: "Settings",
+    href: "/settings",
+    icon: Settings,
+  },
 ];
 
-export default function AppSidebar() {
-    return (
-        <aside className="w-64 border-r border-zinc-800 bg-[#0B1220] text-white hidden lg:flex flex-col">
-            <div className="p-6 font-bold text-xl">
-                ZIGFT Research
-            </div>
+export function AppSidebar() {
+  return (
+    <Sidebar>
 
-            <nav className="flex flex-col gap-1 px-3">
-                {menus.map((item) => (
-                    <button
-                        key={item.title}
-                        className="flex items-center gap-3 rounded-lg px-3 py-3 hover:bg-zinc-800 transition"
-                    >
-                        <item.icon size={18} />
+      <SidebarHeader className="border-b border-sidebar-border p-6">
+        <h1 className="text-xl font-bold">
+          ZIGFT Research
+        </h1>
 
-                        {item.title}
-                    </button>
-                ))}
-            </nav>
-        </aside>
-    );
+        <p className="text-xs text-sidebar-foreground/70">
+          Trading Research Platform
+        </p>
+      </SidebarHeader>
+
+      <SidebarContent>
+
+        <SidebarMenu>
+
+          {menus.map((menu) => {
+            const Icon = menu.icon;
+
+            return (
+              <SidebarMenuItem key={menu.title}>
+
+                <SidebarMenuButton
+                  render={
+                    <Link href={menu.href}>
+                      <Icon />
+                      <span>{menu.title}</span>
+                    </Link>
+                  }
+                />
+
+              </SidebarMenuItem>
+            );
+          })}
+
+        </SidebarMenu>
+
+      </SidebarContent>
+
+      <SidebarFooter className="border-t border-sidebar-border p-4">
+
+        <div className="rounded-xl border border-sidebar-border p-4">
+
+          <p className="font-semibold">
+            Research Mode
+          </p>
+
+          <p className="text-xs text-sidebar-foreground/70">
+            ZIGFT v1.0
+          </p>
+
+        </div>
+
+      </SidebarFooter>
+
+    </Sidebar>
+  );
 }

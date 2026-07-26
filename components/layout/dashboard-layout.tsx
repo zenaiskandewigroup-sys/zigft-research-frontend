@@ -1,28 +1,37 @@
-import AppSidebar from "./app-sidebar";
-import TopNavbar from "./top-navbar";
+"use client";
 
-export default function DashboardLayout({
-    children,
-}: {
-    children: React.ReactNode;
-}) {
-    return (
-        <div className="flex min-h-screen bg-[#0F172A]">
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "./app-sidebar";
+import { TopNavbar } from "./top-navbar";
 
-            <AppSidebar />
+interface DashboardLayoutProps {
+  children: React.ReactNode;
+}
 
-            <div className="flex flex-col flex-1">
+export function DashboardLayout({
+  children,
+}: DashboardLayoutProps) {
+  return (
+    <SidebarProvider defaultOpen>
 
-                <TopNavbar />
+      <div className="flex min-h-screen w-full bg-background">
 
-                <main className="flex-1 p-6">
+        <AppSidebar />
 
-                    {children}
+        <div className="flex min-w-0 flex-1 flex-col">
 
-                </main>
+          <TopNavbar />
 
+          <main className="flex-1 overflow-auto bg-background">
+            <div className="min-h-full p-4 sm:p-6 lg:p-8">
+              {children}
             </div>
+          </main>
 
         </div>
-    );
+
+      </div>
+
+    </SidebarProvider>
+  );
 }

@@ -1,7 +1,7 @@
-import { Card } from "@/components/ui/card";
-import { PageContainer } from "@/components/ui/page-container";
-import { SectionTitle } from "@/components/ui/section-title";
-import { StatCard } from "@/components/ui/stat-card";
+import { PageContainer } from "@/components/common/page-container";
+import { SectionTitle } from "@/components/common/section-title";
+import { StatCard } from "@/components/common/stat-card";
+import { SurfaceCard } from "@/components/common/surface-card";
 
 export default function DashboardPage() {
   return (
@@ -23,7 +23,7 @@ export default function DashboardPage() {
       <div className="mt-8 grid grid-cols-1 gap-6 xl:grid-cols-3">
 
         {/* Recent Research */}
-        <Card className="p-6 xl:col-span-2">
+        <SurfaceCard className="p-6 xl:col-span-2">
           <h2 className="text-lg font-semibold">
             Recent Research
           </h2>
@@ -31,10 +31,10 @@ export default function DashboardPage() {
           <p className="mt-2 text-sm text-muted-foreground">
             Latest trading research will appear here.
           </p>
-        </Card>
+        </SurfaceCard>
 
         {/* Market Status */}
-        <Card className="p-6">
+        <SurfaceCard className="p-6">
           <h2 className="text-lg font-semibold">
             Market Status
           </h2>
@@ -42,13 +42,13 @@ export default function DashboardPage() {
           <p className="mt-2 text-sm text-muted-foreground">
             Market data coming soon.
           </p>
-        </Card>
+        </SurfaceCard>
 
       </div>
 
       {/* Research History */}
       <div className="mt-6">
-        <Card className="p-6">
+        <SurfaceCard className="p-6">
           <h2 className="text-lg font-semibold">
             Research History
           </h2>
@@ -56,9 +56,8 @@ export default function DashboardPage() {
           <p className="mt-2 text-sm text-muted-foreground">
             No research history available.
           </p>
-        </Card>
+        </SurfaceCard>
       </div>
-
     </PageContainer>
   );
 }
