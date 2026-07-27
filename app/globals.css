@@ -1,3 +1,4 @@
+@import "../styles/theme.css";
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -49,10 +50,10 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --background: var(--surface-background);
+  --foreground: var(--text-primary);
+  --card: var(--surface-card);
+  --card-foreground: var(--text-primary);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
@@ -60,11 +61,11 @@
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --muted-foreground: var(--text-secondary);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
+  --border: var(--border-primary);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
   --chart-1: oklch(0.87 0 0);
@@ -73,8 +74,8 @@
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar: var(--surface-sidebar);
+  --sidebar-foreground: var(--text-primary);
   --sidebar-primary: oklch(0.205 0 0);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
@@ -84,11 +85,11 @@
 }
 
 .dark {
-  --background: #0b1220;
-  --foreground: #f8fafc;
+  --background: var(--surface-background);
+  --foreground: var(--text-primary);
 
-  --card: #131d2f;
-  --card-foreground: #f8fafc;
+  --card: var(--surface-card);
+  --card-foreground: var(--text-primary);
 
   --popover: #131d2f;
   --popover-foreground: #f8fafc;
@@ -100,14 +101,14 @@
   --secondary-foreground: #f8fafc;
 
   --muted: #182338;
-  --muted-foreground: #94a3b8;
+  --muted-foreground: var(--text-secondary);
 
   --accent: #182338;
   --accent-foreground: #f8fafc;
 
   --destructive: #ef4444;
 
-  --border: #26354d;
+  --border: var(--border-primary);
   --input: #26354d;
   --ring: #3b82f6;
 
@@ -117,8 +118,8 @@
   --chart-4: #ef4444;
   --chart-5: #8b5cf6;
 
-  --sidebar: #101827;
-  --sidebar-foreground: #f8fafc;
+  --sidebar: var(--surface-sidebar);
+  --sidebar-foreground: var(--text-primary);
 
   --sidebar-primary: #3b82f6;
   --sidebar-primary-foreground: #ffffff;

@@ -1,10 +1,24 @@
-type Props = {
-  children: React.ReactNode;
-};
+import { cn } from "@/lib/utils";
+import { layout, spacing } from "@/lib/theme/tokens";
 
-export function PageContainer({ children }: Props) {
+interface Props {
+  children: React.ReactNode;
+  className?: string;
+}
+
+export function PageContainer({
+  children,
+  className,
+}: Props) {
   return (
-    <div className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+    <div
+      className={cn(
+        layout.page,
+        spacing.page,
+        spacing.section,
+        className
+      )}
+    >
       {children}
     </div>
   );
